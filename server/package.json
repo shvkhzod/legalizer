@@ -8,6 +8,7 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "migrate": "node migrate.js",
     "db:init": "psql -U postgres -f src/db/init.sql",
     "db:schema": "psql -U postgres -d charity_compliance -f src/db/schema.sql"
   },

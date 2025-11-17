@@ -19,9 +19,24 @@ const fastify = Fastify({
   },
 });
 
-// Register CORS
+// Register CORS - support multiple origins
 await fastify.register(cors, {
-  origin: config.cors.origin,
+  origin: (origin, cb) => {
+    const allowedOrigins = config.cors.origin.split(',').map(o => o.trim());
+
+    // Allow requests with no origin (mobile apps, Postman, etc.)
+    if (!origin) {
+      cb(null, true);
+      return;
+    }
+
+    // Check if origin is allowed
+    if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Not allowed by CORS'), false);
+    }
+  },
   credentials: true,
 });
 
