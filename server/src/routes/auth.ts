@@ -237,7 +237,7 @@ export async function authRoutes(fastify: FastifyInstance) {
   fastify.post(
     '/auth/logout-all',
     {
-      preHandler: async (request, reply) => {
+      preHandler: async (_request, _reply) => {
         // This would need auth middleware, but for simplicity, we'll accept userId in body
         // In production, you'd use the authenticateToken middleware
       },

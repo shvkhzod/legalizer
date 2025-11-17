@@ -558,6 +558,42 @@
     margin: 0;
   }
 
+  /* Tablet Responsive - iPad */
+  @media (max-width: 1024px) {
+    .hero {
+      padding: 60px 1.5rem 0;
+    }
+
+    .title {
+      font-size: 56px;
+    }
+
+    .shield-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      max-width: 550px;
+    }
+
+    .scan-form {
+      max-width: 480px;
+    }
+
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 0 1.5rem;
+    }
+
+    .feature-card {
+      padding: 32px 20px;
+    }
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     .hero {
       padding: 40px 1rem 0;
@@ -567,11 +603,13 @@
       font-size: 13px;
       padding: 6px 12px;
       margin-bottom: 24px;
+      gap: 6px;
     }
 
     .avatar {
       width: 24px;
       height: 24px;
+      margin-left: -6px;
     }
 
     .stars-wrapper {
@@ -584,35 +622,41 @@
 
     .users-count {
       font-size: 13px;
+      margin-left: 6px;
     }
 
     .title {
-      font-size: 36px;
+      font-size: 42px;
       line-height: 1.1;
       margin-bottom: 16px;
       letter-spacing: -1px;
     }
 
     .shield-icon {
-      width: 50px;
-      height: 50px;
+      width: 54px;
+      height: 54px;
+      margin: 0 2px;
     }
 
     .subtitle {
       font-size: 15px;
       margin-bottom: 32px;
+      padding: 0 0.5rem;
     }
 
     .scan-form {
       flex-direction: column;
       max-width: 100%;
       margin-bottom: 60px;
+      gap: 12px;
     }
 
     .url-input {
       width: 100%;
       border-radius: 12px;
       height: 48px;
+      font-size: 15px;
+      padding: 0 16px;
     }
 
     .scan-button {
@@ -620,6 +664,7 @@
       border-radius: 12px;
       margin-left: 0;
       height: 48px;
+      font-size: 15px;
     }
 
     .features {
@@ -630,14 +675,27 @@
 
     .feature-card {
       padding: 28px 20px;
+      border-radius: 20px;
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon img {
+      width: 100%;
+      height: 100%;
     }
 
     .feature-card h3 {
       font-size: 16px;
+      margin-bottom: 10px;
     }
 
     .feature-card p {
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .bg-grid {
@@ -647,6 +705,66 @@
     .bg-blur-top,
     .bg-blur-bottom {
       display: none;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .hero {
+      padding: 32px 0.875rem 0;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .avatar {
+      width: 20px;
+      height: 20px;
+    }
+
+    .star {
+      font-size: 13px;
+    }
+
+    .users-count {
+      font-size: 12px;
+    }
+
+    .title {
+      font-size: 36px;
+    }
+
+    .shield-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .url-input {
+      height: 46px;
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .scan-button {
+      height: 46px;
+      font-size: 14px;
+    }
+
+    .feature-card {
+      padding: 24px 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+    }
+
+    .feature-card p {
+      font-size: 12px;
     }
   }
 </style>

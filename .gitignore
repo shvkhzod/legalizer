@@ -6,7 +6,7 @@ node_modules
 .env
 .env.*
 !.env.example
-.instructions.md
+instructions.md
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 

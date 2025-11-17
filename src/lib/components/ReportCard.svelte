@@ -175,4 +175,115 @@
     margin: 0;
     line-height: 1.5;
   }
+
+  /* Tablet Responsive */
+  @media (max-width: 1024px) {
+    .report-card {
+      padding: 20px;
+    }
+
+    .card-header h3 {
+      font-size: 17px;
+    }
+
+    .summary {
+      font-size: 13px;
+    }
+
+    .recommendation {
+      padding: 14px;
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .report-card {
+      padding: 20px;
+      margin-bottom: 12px;
+      border-radius: 14px;
+    }
+
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .status-badge {
+      padding: 5px 10px;
+      font-size: 12px;
+      align-self: flex-start;
+    }
+
+    .status-icon {
+      font-size: 13px;
+    }
+
+    .card-header h3 {
+      font-size: 16px;
+    }
+
+    .card-body {
+      margin-top: 12px;
+    }
+
+    .summary {
+      font-size: 13px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .recommendation {
+      padding: 14px;
+      border-radius: 6px;
+      border-left-width: 2px;
+    }
+
+    .recommendation strong {
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .recommendation p {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .report-card {
+      padding: 16px;
+    }
+
+    .card-header {
+      gap: 10px;
+    }
+
+    .status-badge {
+      padding: 4px 8px;
+      font-size: 11px;
+    }
+
+    .card-header h3 {
+      font-size: 15px;
+    }
+
+    .summary {
+      font-size: 12px;
+    }
+
+    .recommendation {
+      padding: 12px;
+    }
+
+    .recommendation strong {
+      font-size: 11px;
+    }
+
+    .recommendation p {
+      font-size: 11px;
+    }
+  }
 </style>

@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import { config } from './env.js';
 import crypto from 'crypto';
 
@@ -11,9 +11,11 @@ export interface JWTPayload {
  * Generate access token (short-lived)
  */
 export function generateAccessToken(payload: JWTPayload): string {
-  return jwt.sign(payload, config.jwt.accessSecret, {
-    expiresIn: config.jwt.accessExpiry,
-  });
+  const secret: string = config.jwt.accessSecret;
+  const options: SignOptions = {
+    expiresIn: config.jwt.accessExpiry as any,
+  };
+  return jwt.sign(payload, secret, options);
 }
 
 /**

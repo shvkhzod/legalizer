@@ -358,4 +358,114 @@
   .auth-footer a:hover {
     opacity: 0.8;
   }
+
+  /* Tablet Styles */
+  @media (max-width: 1024px) {
+    .auth-container {
+      padding: 1.5rem;
+    }
+
+    .auth-card {
+      padding: 40px 32px;
+    }
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .bg-grid {
+      background-size: 30px 30px;
+    }
+
+    .bg-blur-top {
+      display: none;
+    }
+
+    .auth-container {
+      min-height: 70vh;
+      padding: 1rem;
+    }
+
+    .auth-card {
+      padding: 32px 24px;
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 13px;
+    }
+
+    input {
+      padding: 11px 14px;
+      font-size: 15px;
+    }
+
+    .password-requirements {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 12px;
+    }
+
+    .requirements-title {
+      font-size: 12px;
+    }
+
+    .requirement-error {
+      font-size: 12px;
+    }
+
+    .field-error {
+      font-size: 12px;
+    }
+
+    .btn-primary {
+      padding: 11px 20px;
+      font-size: 15px;
+    }
+
+    .auth-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+    }
+
+    .auth-footer p {
+      font-size: 13px;
+    }
+  }
+
+  /* Small Mobile Styles */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .auth-card {
+      padding: 24px 20px;
+    }
+
+    input {
+      font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .password-requirements {
+      padding: 8px;
+    }
+  }
 </style>

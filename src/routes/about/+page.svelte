@@ -972,22 +972,27 @@
     margin-bottom: 32px;
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
+  /* Tablet Responsive */
+  @media (max-width: 1024px) {
+    .about-container {
+      padding: 60px 1.5rem 40px;
+    }
+
+    .hero-section {
+      padding: 40px 0 80px;
+    }
+
     .hero-title {
-      font-size: 40px;
+      font-size: 52px;
     }
 
     .section-header h2 {
-      font-size: 32px;
-    }
-
-    .hero-actions {
-      flex-direction: column;
+      font-size: 40px;
     }
 
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .mission-grid {
@@ -995,23 +1000,262 @@
     }
 
     .features-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .tech-grid {
       grid-template-columns: 1fr;
+      gap: 24px;
     }
 
     .cta-card {
-      padding: 60px 32px;
+      padding: 60px 48px;
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 60px 1rem 20px;
+    }
+
+    .hero-section {
+      padding: 30px 0 60px;
+    }
+
+    .hero-badge {
+      font-size: 13px;
+      padding: 6px 12px;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-tag {
+      font-size: 12px;
+      padding: 4px 12px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 15px;
+    }
+
+    .stats-section {
+      padding: 40px 0;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .stat-card {
+      padding: 32px 24px;
+    }
+
+    .stat-number {
+      font-size: 40px;
+    }
+
+    .stat-label {
+      font-size: 14px;
+    }
+
+    .mission-section, .features-section, .tech-section {
+      padding: 60px 0;
+    }
+
+    .mission-card {
+      padding: 32px 24px;
+    }
+
+    .mission-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .mission-card h3 {
+      font-size: 24px;
+    }
+
+    .mission-card h4 {
+      font-size: 18px;
+    }
+
+    .mission-card p {
+      font-size: 15px;
+    }
+
+    .mission-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .feature-card {
+      padding: 32px 24px;
+    }
+
+    .feature-icon-wrapper {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+    }
+
+    .tech-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .tech-card {
+      padding: 40px 32px;
+    }
+
+    .tech-visual {
+      height: 120px;
+      margin-bottom: 24px;
+    }
+
+    .tech-icon {
+      font-size: 48px;
+    }
+
+    .tech-card h3 {
+      font-size: 20px;
+    }
+
+    .tech-card p {
+      font-size: 14px;
+    }
+
+    .cta-section {
+      padding: 60px 0 20px;
+    }
+
+    .cta-card {
+      padding: 48px 24px;
+      border-radius: 24px;
     }
 
     .cta-card h2 {
-      font-size: 32px;
+      font-size: 28px;
+    }
+
+    .cta-card p {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .btn-large {
+      padding: 14px 32px;
+      font-size: 16px;
+      width: 100%;
+      justify-content: center;
     }
 
     .bg-grid {
       background-size: 30px 30px;
+    }
+
+    .bg-blur-top, .bg-blur-middle {
+      display: none;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 32px;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+    }
+
+    .btn-primary, .btn-secondary {
+      font-size: 14px;
+      padding: 10px 20px;
+    }
+
+    .stat-number {
+      font-size: 36px;
+    }
+
+    .mission-card {
+      padding: 24px 20px;
+    }
+
+    .feature-card {
+      padding: 28px 20px;
+    }
+
+    .tech-card {
+      padding: 32px 24px;
+    }
+
+    .cta-card {
+      padding: 40px 20px;
+    }
+
+    .cta-card h2 {
+      font-size: 24px;
+    }
+
+    .cta-card p {
+      font-size: 15px;
     }
   }
 </style>

@@ -23,4 +23,4 @@ export const config = {
     accessExpiry: process.env.JWT_ACCESS_EXPIRY || '15m', // 15 minutes
     refreshExpiryDays: parseInt(process.env.JWT_REFRESH_EXPIRY_DAYS || '7', 10), // 7 days
   },
-} as const;
+};

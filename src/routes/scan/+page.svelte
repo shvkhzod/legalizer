@@ -258,6 +258,14 @@
     transform: translateY(-2px);
   }
 
+  /* Tablet Responsive */
+  @media (max-width: 1024px) {
+    .scan-container {
+      padding: 60px 1.5rem 40px;
+    }
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     .scan-container {
       padding: 60px 1rem 20px;
@@ -276,14 +284,28 @@
       gap: 8px;
       padding: 12px 16px;
       font-size: 14px;
+      border-radius: 14px;
+      margin-bottom: 24px;
     }
 
     .notification-icon {
       font-size: 18px;
     }
 
+    .notification-text {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .save-notification a {
+      display: block;
+      margin-left: 0;
+      margin-top: 4px;
+    }
+
     .error-state {
       padding: 60px 1.5rem;
+      border-radius: 20px;
     }
 
     .error-state h2 {
@@ -291,6 +313,44 @@
     }
 
     .error-state p {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .button {
+      font-size: 15px;
+      padding: 11px 20px;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .scan-container {
+      padding: 48px 0.875rem 20px;
+    }
+
+    .save-notification {
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    .notification-icon {
+      font-size: 16px;
+    }
+
+    .error-state {
+      padding: 48px 1rem;
+    }
+
+    .error-state h2 {
+      font-size: 20px;
+    }
+
+    .error-state p {
+      font-size: 13px;
+    }
+
+    .button {
       font-size: 14px;
     }
   }

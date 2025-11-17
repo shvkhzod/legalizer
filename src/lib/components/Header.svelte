@@ -283,36 +283,99 @@
     transform: translateY(0);
   }
 
+  /* Tablet Styles */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .nav-link {
+      padding: 0 14px;
+      font-size: 14px;
+    }
+
+    .user-name {
+      max-width: 120px;
+    }
+  }
+
+  /* Mobile Styles */
   @media (max-width: 768px) {
+    header {
+      padding: 24px 0 0 0;
+    }
+
     .container {
       gap: 12px;
       flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo img {
+      height: 24px;
     }
 
     .nav-group {
       order: 3;
       width: 100%;
       justify-content: center;
+      height: 48px;
+      padding: 0 6px;
     }
 
     .nav-link {
-      padding: 0 16px;
-      font-size: 14px;
+      padding: 0 12px;
+      font-size: 13px;
+      height: 36px;
+      line-height: 36px;
     }
 
     .auth-buttons {
       padding: 8px;
       gap: 6px;
+      height: 48px;
     }
 
     .user-name {
-      max-width: 100px;
-      font-size: 13px;
+      max-width: 80px;
+      font-size: 12px;
+      padding: 0 8px;
     }
 
     .btn-logout, .btn-login, .btn-signup {
-      font-size: 13px;
-      padding: 0 14px;
+      font-size: 12px;
+      padding: 0 12px;
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+
+  /* Small Mobile Styles */
+  @media (max-width: 480px) {
+    .container {
+      gap: 8px;
+    }
+
+    .nav-link {
+      padding: 0 10px;
+      font-size: 12px;
+    }
+
+    .user-name {
+      display: none;
+    }
+
+    .btn-logout, .btn-login {
+      padding: 0 16px;
+    }
+
+    .btn-signup {
+      padding: 0 20px;
     }
   }
 </style>

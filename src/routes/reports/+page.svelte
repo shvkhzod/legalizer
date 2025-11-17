@@ -619,6 +619,23 @@
     padding: 24px 0;
   }
 
+  /* Tablet Responsive */
+  @media (max-width: 1024px) {
+    main {
+      padding: 60px 1.5rem 30px;
+    }
+
+    .page-header h1 {
+      font-size: 40px;
+    }
+
+    .reports-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     main {
       padding: 60px 1rem 20px;
@@ -636,17 +653,39 @@
       font-size: 14px;
     }
 
+    .loading {
+      padding: 60px 1rem;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+    }
+
+    .loading p {
+      font-size: 15px;
+    }
+
     .reports-grid {
       grid-template-columns: 1fr;
       gap: 20px;
+      margin-bottom: 32px;
     }
 
     .report-card {
       padding: 24px;
+      border-radius: 20px;
+    }
+
+    .report-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .report-url h3 {
       font-size: 16px;
+      margin-bottom: 6px;
     }
 
     .scan-date {
@@ -656,11 +695,20 @@
     .status-badge {
       font-size: 12px;
       padding: 4px 10px;
+      align-self: flex-start;
+    }
+
+    .report-score {
+      padding: 20px 0;
     }
 
     .score-circle {
       width: 100px;
       margin: 0 auto 12px;
+    }
+
+    .score-label {
+      font-size: 13px;
     }
 
     .report-actions {
@@ -670,14 +718,18 @@
 
     .report-actions .button {
       width: 100%;
+      padding: 12px 20px;
+      font-size: 15px;
     }
 
     .empty-state {
       padding: 60px 1.5rem;
+      border-radius: 20px;
     }
 
     .empty-icon {
       font-size: 4rem;
+      margin-bottom: 20px;
     }
 
     .empty-state h2 {
@@ -686,6 +738,17 @@
 
     .empty-state p {
       font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .button-primary {
+      font-size: 15px;
+      padding: 11px 20px;
+    }
+
+    .reports-summary {
+      font-size: 13px;
+      padding: 20px 0;
     }
 
     .bg-grid {
@@ -694,6 +757,38 @@
 
     .bg-blur-top {
       display: none;
+    }
+  }
+
+  /* Small Mobile */
+  @media (max-width: 480px) {
+    .page-header h1 {
+      font-size: 28px;
+    }
+
+    .report-card {
+      padding: 20px;
+    }
+
+    .report-url h3 {
+      font-size: 15px;
+    }
+
+    .status-badge {
+      font-size: 11px;
+      padding: 3px 8px;
+    }
+
+    .empty-state {
+      padding: 48px 1rem;
+    }
+
+    .empty-icon {
+      font-size: 3.5rem;
+    }
+
+    .empty-state h2 {
+      font-size: 22px;
     }
   }
 </style>

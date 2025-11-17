@@ -12,7 +12,10 @@
       "mcp__figma-desktop__get_design_context",
       "mcp__figma-desktop__get_variable_defs",
       "Bash(curl:*)",
-      "Bash(timeout /t 3)"
+      "Bash(timeout /t 3)",
+      "Bash(npm start)",
+      "Bash(npm run build:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

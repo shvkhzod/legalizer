@@ -46,7 +46,7 @@ export async function authenticateToken(
  */
 export async function optionalAuth(
   request: FastifyRequest,
-  reply: FastifyReply
+  _reply: FastifyReply
 ): Promise<void> {
   const authHeader = request.headers.authorization;
 
