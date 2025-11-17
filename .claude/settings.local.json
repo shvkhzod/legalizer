@@ -15,7 +15,8 @@
       "Bash(timeout /t 3)",
       "Bash(npm start)",
       "Bash(npm run build:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
