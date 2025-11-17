@@ -54,75 +54,125 @@
 
 <style>
   .report-card {
-    background-color: var(--color-bg-primary);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-    box-shadow: var(--card-shadow);
-    transition: var(--transition-fast);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    animation: slideInUp 0.5s ease-out both;
   }
 
   .report-card:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .report-card:nth-child(1) { animation-delay: 0.05s; }
+  .report-card:nth-child(2) { animation-delay: 0.1s; }
+  .report-card:nth-child(3) { animation-delay: 0.15s; }
+  .report-card:nth-child(4) { animation-delay: 0.2s; }
+  .report-card:nth-child(5) { animation-delay: 0.25s; }
+  .report-card:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .card-header {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
   .status-badge {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: calc(var(--border-radius) / 2);
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
     color: white;
-    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
     font-weight: 600;
     white-space: nowrap;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
   }
 
   .status-icon {
-    font-size: 1rem;
+    font-size: 14px;
+    animation: bounce 1s ease-in-out;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
   }
 
   .card-header h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
     margin: 0;
-    font-size: 1.25rem;
-    color: var(--color-text-primary);
   }
 
   .card-body {
-    margin-top: var(--spacing-md);
+    margin-top: 16px;
   }
 
   .summary {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-md);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #e5e7eb;
+    margin-bottom: 16px;
+    line-height: 1.6;
   }
 
   .recommendation {
-    background-color: var(--color-bg-secondary);
-    padding: var(--spacing-md);
-    border-radius: calc(var(--border-radius) / 2);
-    border-left: 3px solid var(--color-accent);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 3px solid #228bff;
   }
 
   .recommendation strong {
-    color: var(--color-text-primary);
-    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
     display: block;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 8px;
   }
 
   .recommendation p {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #9ca3af;
     margin: 0;
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    line-height: 1.5;
   }
 </style>

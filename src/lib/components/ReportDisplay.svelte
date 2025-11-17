@@ -1,8 +1,48 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import type { ComplianceReport } from '$lib/utils/types';
   import ReportCard from './ReportCard.svelte';
 
   export let report: ComplianceReport;
+
+  let displayScore = 0;
+  let animationStarted = false;
+
+  onMount(() => {
+    // Start the animation after the scale-in completes
+    setTimeout(() => {
+      animateScore();
+    }, 1000); // Start after circle scale-in (0.8s) + small delay
+  });
+
+  function animateScore() {
+    if (animationStarted) return;
+    animationStarted = true;
+
+    const targetScore = report.overallScore;
+    const duration = 1500; // 1.5 seconds
+    const startTime = Date.now();
+    const startScore = 0;
+
+    function updateScore() {
+      const currentTime = Date.now();
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Easing function for smooth animation (ease-out-cubic)
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+
+      displayScore = Math.round(startScore + (targetScore - startScore) * easeOutCubic);
+
+      if (progress < 1) {
+        requestAnimationFrame(updateScore);
+      } else {
+        displayScore = targetScore;
+      }
+    }
+
+    requestAnimationFrame(updateScore);
+  }
 
   function formatDate(isoString: string): string {
     const date = new Date(isoString);
@@ -50,7 +90,7 @@
 
     <div class="score-container">
       <div class="score-circle" style="border-color: {getScoreColor(report.overallScore)};">
-        <span class="score-number">{report.overallScore}</span>
+        <span class="score-number">{displayScore}</span>
         <span class="score-label">/ 100</span>
       </div>
       <div class="overall-status" style="color: {getOverallStatusColor(report.overallStatus)};">
@@ -162,15 +202,28 @@
   }
 
   .report-header {
-    background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-lg);
+    gap: 24px;
+    backdrop-filter: blur(10px);
+    animation: slideInDown 0.6s ease-out;
+  }
+
+  @keyframes slideInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .header-content {
@@ -178,17 +231,33 @@
   }
 
   .report-header h1 {
-    margin-bottom: var(--spacing-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 12px;
   }
 
   .scan-info {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 8px;
+  }
+
+  .scan-info strong {
+    color: #ffffff;
+    font-weight: 500;
   }
 
   .scan-info a {
+    color: #228bff;
+    text-decoration: none;
     word-break: break-all;
+  }
+
+  .scan-info a:hover {
+    opacity: 0.8;
   }
 
   .score-container {
@@ -204,97 +273,202 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 12px;
+    animation: scaleIn 0.8s ease-out 0.2s both;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .score-number {
+    font-family: 'Inter', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--color-text-primary);
+    color: #ffffff;
     line-height: 1;
+    font-variant-numeric: tabular-nums;
   }
 
   .score-label {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #9ca3af;
   }
 
   .overall-status {
-    font-size: 1.25rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
     font-weight: 600;
   }
 
   .summary-section {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 48px;
+    animation: fadeIn 0.6s ease-out 0.3s both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .summary-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 24px;
   }
 
   .summary-box {
     border-left: 4px solid;
-    padding: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
-    border-radius: var(--border-radius);
-    background-color: var(--color-bg-secondary);
+    padding: 24px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    animation: slideInLeft 0.5s ease-out both;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .summary-box:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .summary-box:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .summary-box:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .summary-box:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   .summary-box.good {
-    border-color: var(--status-good);
-    background-color: rgba(52, 199, 89, 0.05);
+    border-color: #34c759;
+    background: rgba(52, 199, 89, 0.1);
   }
 
   .summary-box.warning {
-    border-color: var(--status-warning);
-    background-color: rgba(255, 149, 0, 0.05);
+    border-color: #ff9f0a;
+    background: rgba(255, 159, 10, 0.1);
   }
 
   .summary-box.threat {
-    border-color: var(--status-threat);
-    background-color: rgba(255, 59, 48, 0.05);
+    border-color: #ff3b30;
+    background: rgba(255, 59, 48, 0.1);
   }
 
   .summary-box h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
     margin-top: 0;
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.125rem;
+    margin-bottom: 12px;
   }
 
   .summary-box ul {
     margin: 0;
-    padding-left: var(--spacing-lg);
+    padding-left: 24px;
   }
 
   .summary-box li {
-    margin-bottom: var(--spacing-xs);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #e5e7eb;
+    margin-bottom: 8px;
   }
 
   .checks-section {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 48px;
+    animation: fadeIn 0.6s ease-out 0.5s both;
+  }
+
+  .checks-section > h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 32px;
   }
 
   .check-category {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 48px;
   }
 
   .check-category > h3 {
-    font-size: 1.5rem;
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--color-border);
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
   }
 
   .action-buttons {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-xl);
-    border-top: 1px solid var(--color-border);
+    gap: 16px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .action-buttons .button {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .action-buttons .button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   @media (max-width: 768px) {
     .report-header {
       flex-direction: column;
       text-align: center;
+    }
+
+    .report-header h1 {
+      font-size: 24px;
     }
 
     .score-circle {
